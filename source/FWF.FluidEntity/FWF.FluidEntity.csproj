@@ -48,6 +48,28 @@
     </Compile>
     <Compile Include="BuildEnvironment.cs" />
     <Compile Include="Bytes.cs" />
+    <Compile Include="ComponentModel\Base64Url.cs" />
+    <Compile Include="ComponentModel\BufferPool.cs" />
+    <Compile Include="ComponentModel\EntityBase.cs" />
+    <Compile Include="ComponentModel\IEntity.cs" />
+    <Compile Include="ComponentModel\IEntityHistory.cs" />
+    <Compile Include="ComponentModel\IEntityId.cs" />
+    <Compile Include="ComponentModel\IEntityVersion.cs" />
+    <Compile Include="ComponentModel\IEntityWithHistory.cs" />
+    <Compile Include="ComponentModel\MemoryBuffer.cs" />
+    <Compile Include="ComponentModel\ReadOnlySetting.cs" />
+    <Compile Include="ComponentModel\StreamExceededMemoryBufferSizeException.cs" />
+    <Compile Include="ComponentModel\Streams\AggregateStreamReader.cs" />
+    <Compile Include="ComponentModel\Streams\DataPipeline.cs" />
+    <Compile Include="ComponentModel\Streams\DataPipelineBuilder.cs" />
+    <Compile Include="ComponentModel\Streams\IDataPipelineItem.cs" />
+    <Compile Include="ComponentModel\Streams\IStreamReader.cs" />
+    <Compile Include="ComponentModel\Streams\IStreamReaderWriter.cs" />
+    <Compile Include="ComponentModel\Streams\IStreamWriter.cs" />
+    <Compile Include="ComponentModel\Streams\MemoryPoolStream.cs" />
+    <Compile Include="ComponentModel\Streams\NoOpStreamWriter.cs" />
+    <Compile Include="ComponentModel\Streams\WrappedStream.cs" />
+    <Compile Include="ComponentModel\UrlData.cs" />
     <Compile Include="Data\CrudOperation.cs" />
     <Compile Include="Data\DataConnection.cs" />
     <Compile Include="Data\DataSetItem.cs" />
@@ -66,6 +88,15 @@
     <Compile Include="Data\ProcResult.cs" />
     <Compile Include="Data\SqlConnectionFactory.cs" />
     <Compile Include="DisposableObject.cs" />
+    <Compile Include="Extensions\ByteExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtension.cs" />
+    <Compile Include="Extensions\LogExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="IRandom.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="Logging\ILog.cs" />
@@ -78,6 +109,12 @@
     <Compile Include="Startable.cs" />
     <Compile Include="Threading\RestartableThread.cs" />
     <Compile Include="Threading\TimeoutLock.cs" />
+    <Compile Include="Url.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ComponentModel\Entity.cd" />
+    <None Include="ComponentModel\Streams\DataPipeline.cd" />
+    <None Include="ComponentModel\Streams\Streams.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
