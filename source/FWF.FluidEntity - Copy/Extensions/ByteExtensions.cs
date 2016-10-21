@@ -6,6 +6,12 @@ namespace FWF.FluidEntity
 {
     public static class ByteExtensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="compare"></param>
+        /// <returns></returns>
         [MethodImpl(MethodImplOptions.NoOptimization)]
         public static bool IsEqualByte(this byte[] original, byte[] compare)
         {
@@ -62,6 +68,22 @@ namespace FWF.FluidEntity
 
             return new string(hex);
         }
-        
+
+        [MethodImpl(MethodImplOptions.NoOptimization)]
+        public static byte[] Sha256(this byte[] input)
+        {
+            if (input == null)
+            {
+                return null;
+            }
+            byte[] result;
+            using (SHA256 sha = SHA256.Create())
+            {
+                result = sha.ComputeHash(input);
+            }
+            return result;
+        }
+
+
     }
 }

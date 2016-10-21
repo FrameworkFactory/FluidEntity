@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Avid.Galileo.ComponentModel.Streams.DataPipeline">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="_builder" Hidden="true" />
+      <Field Name="_chainPipelineInputStream" Hidden="true" />
+      <Field Name="_chainPipelineOutputStream" Hidden="true" />
+      <Field Name="_log" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AEAAACAAACAAAEQAAAAAAAAAAAAAgAAAAAAAAAAACAA=</HashCode>
+      <FileName>ComponentModel\Streams\DataPipeline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Avid.Galileo.ComponentModel.Streams.DataPipelineBuilder">
+    <Position X="2.75" Y="2" Width="1.75" />
+    <Members>
+      <Field Name="_dataPipeline" Hidden="true" />
+      <Field Name="_inputReader" Hidden="true" />
+      <Field Name="_items" Hidden="true" />
+      <Field Name="_outputWriter" Hidden="true" />
+      <Method Name="DataPipelineBuilder" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACAAAAAAIQAAAEJCAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>ComponentModel\Streams\DataPipelineBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Avid.Galileo.ComponentModel.Streams.IDataPipelineItem">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>ComponentModel\Streams\IDataPipelineItem.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

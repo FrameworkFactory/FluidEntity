@@ -30,59 +30,7 @@ namespace FWF.FluidEntity
                 action(obj);
             }
         }
-
-        public static IEnumerable<T> Consume<T>(this IEnumerable<T> collection)
-        {
-            if (collection == null)
-            {
-                return null;
-            }
-
-            return new HashSet<T>(collection).Materialize();
-        }
-
-        public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> itemsToAdd)
-        {
-            using (var e = itemsToAdd.GetEnumerator())
-            {
-                while (e.MoveNext())
-                {
-                    collection.Add(e.Current);
-                }
-            }
-        }
-
-        public static void SafeAddRange<TKey, TValue>(
-            this IDictionary<TKey, TValue> dictionary, IDictionary<TKey, TValue> itemsToAdd)
-        {
-            using (var e = itemsToAdd.GetEnumerator())
-            {
-                while (e.MoveNext())
-                {
-                    if (!dictionary.ContainsKey(e.Current.Key))
-                    {
-                        dictionary.Add(e.Current);
-                    }
-                }
-            }
-        }
-
-        public static void SafeAddRange<TKey, TValue>(
-            this IDictionary<TKey, TValue> dictionary, IEnumerable<KeyValuePair<TKey, TValue>> itemsToAdd)
-        {
-            using (var e = itemsToAdd.GetEnumerator())
-            {
-                while (e.MoveNext())
-                {
-                    if (!dictionary.ContainsKey(e.Current.Key))
-                    {
-                        dictionary.Add(e.Current);
-                    }
-                }
-            }
-        }
-
-
+        
         public static IEnumerable<IEnumerable<T>> Batch<T>(this IEnumerable<T> collection, int batchSize)
         {
             List<T> nextbatch = new List<T>(batchSize);

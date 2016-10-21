@@ -83,6 +83,61 @@ namespace FWF.FluidEntity
             return false;
         }
 
+        [DebuggerStepThrough]
+        public static string EnsureTrailingSlash(this string url)
+        {
+            if (url.IsPresent())
+            {
+                if (!url.EndsWith("/"))
+                {
+                    return url + "/";
+                }
+            }
+
+            return url;
+        }
+
+        [DebuggerStepThrough]
+        public static Url EnsureTrailingSlash(this Url url)
+        {
+            var urlString = url.ToString().EnsureTrailingSlash();
+
+            return new Url(urlString);
+        }
+        
+        public static string ReplaceOnce(this string input, string find, string replacement)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException("input");
+            }
+            if (find == null)
+            {
+                throw new ArgumentNullException("find");
+            }
+            if (replacement == null)
+            {
+                replacement = string.Empty;
+            }
+
+            var intBeginLocation = input.IndexOf(find, StringComparison.CurrentCultureIgnoreCase);
+
+            if (intBeginLocation < 0)
+            {
+                return input;
+            }
+
+            var objBuilder = new StringBuilder(input.Length + replacement.Length);
+
+            objBuilder.Append(input.Substring(0, intBeginLocation));
+
+            objBuilder.Append(replacement);
+
+            objBuilder.Append(input.Substring(intBeginLocation + find.Length));
+
+            return objBuilder.ToString();
+        }
+
         public static string RemoveInvalidFileNameChars(this string input)
         {
             // TODO: string replacement over and over again should be addressed
@@ -105,6 +160,38 @@ namespace FWF.FluidEntity
             }
 
             return input;
+        }
+
+        public static string Sha256(this string input)
+        {
+            if (input.IsMissing())
+            {
+                return string.Empty;
+            }
+            string result;
+            using (SHA256 sha = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+                byte[] hash = sha.ComputeHash(bytes);
+                result = Convert.ToBase64String(hash);
+            }
+            return result;
+        }
+
+        public static string Sha512(this string input)
+        {
+            if (input.IsMissing())
+            {
+                return string.Empty;
+            }
+            string result;
+            using (SHA512 sha = SHA512.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+                byte[] hash = sha.ComputeHash(bytes);
+                result = Convert.ToBase64String(hash);
+            }
+            return result;
         }
 
     }

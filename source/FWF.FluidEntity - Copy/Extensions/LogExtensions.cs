@@ -127,5 +127,17 @@ namespace FWF.FluidEntity
             logger.LogExceptionFormat(LogLevel.Fatal, exception, format, args);
         }
 
+        public static void Traffic(this ILog logger, string from, string to, string payload)
+        {
+            var properties = new Dictionary<string, string>
+            {
+                {"from", @from}, 
+                {"to", to}, 
+                {"payload", payload}
+            };
+
+            logger.LogProperties(LogLevel.Traffic, properties);
+        }
+
     }
 }
